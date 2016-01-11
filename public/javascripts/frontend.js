@@ -29,18 +29,18 @@
           localStorage.setItem('userToken', token);
 
           // Save the profile
-          userProfile = profile;
-		  console.log('login')
-
-          document.getElementById('nick').textContent = profile.nickname;
+        //   userProfile = profile;
+        //   console.log(userProfile)
+		      // console.log('login')
+          window.location.replace("/users");
         }
       });
     });
 
 
-    document.getElementById('btn-api').addEventListener('click', function() {
-        // Just call your API here. The header will be sent
-    })
+    // document.getElementById('btn-api').addEventListener('click', function() {
+    //     // Just call your API here. The header will be sent
+    // })
 
 
 });

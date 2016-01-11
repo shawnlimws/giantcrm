@@ -10,6 +10,15 @@ var users = require('./routes/users');
 
 var app = express();
 
+var jwt = require('express-jwt');
+
+var jwtCheck = jwt({
+  secret: new Buffer('L7ctAGkBFBX29RhsdXixp62Lkpo8B1y9YMLwA-ymBVYNjSVcQtk_VM9RR7C-RG8g', 'base64'),
+  audience: 'keY7skILu0DeJk9ZXNB1Kbkeln9wBZsj'
+})
+
+app.use('/users', jwtCheck);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
