@@ -25,6 +25,8 @@ html(lang="en")
       script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
       script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
     script(src="javascripts/admin.js")
+    script(src="javascripts/calendar.js")
+    script(src="https://apis.google.com/js/client.js?onload=checkAuth")
   body
     #wrapper
       // Navigation
@@ -375,7 +377,13 @@ html(lang="en")
                         a(href="#") Separated link
               // /.panel-heading
               .panel-body
-                #morris-area-chart
+                #authorize-div(style="display: none")
+                  span Authorize access to Google Calendar API
+                  // Button for the user to click to initiate auth sequence
+                  button#authorize-button(onclick="handleAuthClick(event)")
+                    | Authorize
+                pre#output.
+                  
               // /.panel-body
             // /.panel
             .panel.panel-default
