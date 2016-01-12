@@ -17,7 +17,6 @@ var jwtCheck = jwt({
   audience: 'keY7skILu0DeJk9ZXNB1Kbkeln9wBZsj'
 })
 
-app.use('/users', jwtCheck);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.use('/users', jwtCheck);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
